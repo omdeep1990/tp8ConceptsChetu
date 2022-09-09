@@ -3,6 +3,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     package="com.chetu.demotp8">
 
+    <uses-permission android:name="android.permission.INTERNET"/>
+
     <application
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
@@ -14,22 +16,47 @@
         android:theme="@style/Theme.DemoTp8"
         tools:targetApi="31">
         <activity
-            android:name=".DialogDemoActivity"
+            android:name=".WebViewActivity"
             android:exported="true" >
+<!--            <intent-filter>-->
+<!--                <action android:name="android.intent.action.MAIN" />-->
+<!--                <category android:name="android.intent.category.LAUNCHER" />-->
+<!--            </intent-filter>-->
+        </activity>
+        <activity
+            android:name=".DateTimePickerActivity"
+            android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
         <activity
+            android:name=".NumberActivity"
+            android:exported="true">
+
+            <!-- <intent-filter> -->
+            <!-- <action android:name="android.intent.action.MAIN" /> -->
+            <!-- <category android:name="android.intent.category.LAUNCHER" /> -->
+            <!-- </intent-filter> -->
+        </activity>
+        <activity
+            android:name=".DialogDemoActivity"
+            android:exported="true">
+
+            <!-- <intent-filter> -->
+            <!-- <action android:name="android.intent.action.MAIN" /> -->
+            <!-- <category android:name="android.intent.category.LAUNCHER" /> -->
+            <!-- </intent-filter> -->
+        </activity>
+        <activity
             android:name=".SimpleDemoActivity"
             android:exported="true">
-<!--            <intent-filter>-->
-<!--                <action android:name="android.intent.action.MAIN" />-->
 
-<!--                <category android:name="android.intent.category.LAUNCHER" />-->
-<!--            </intent-filter>-->
+            <!-- <intent-filter> -->
+            <!-- <action android:name="android.intent.action.MAIN" /> -->
+            <!-- <category android:name="android.intent.category.LAUNCHER" /> -->
+            <!-- </intent-filter> -->
         </activity>
         <activity
             android:name=".LifecycleActivity"
