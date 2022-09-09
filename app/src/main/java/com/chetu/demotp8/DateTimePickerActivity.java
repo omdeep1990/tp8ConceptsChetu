@@ -17,7 +17,7 @@ public class DateTimePickerActivity extends AppCompatActivity {
     private ActivityDateTimePickerBinding binding;
     private Calendar calendar;
     private int DAY, MONTH, YEAR;
-    private String[] weekName = {"Saturday", "Sunday", "Monday", "Tuesday","WEDNESDAY", "THURSDAY", "FRIDAY",};
+    private String[] weekName = {"Saturday", "Sunday", "Monday", "Tuesday","Wednesday", "Thursday", "Friday",};
     private String[] monthName = {"January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"};
     private int SECONDS, MINUTES, HOURS, DATE, DAY_OF_WEEK, MONTH_NAME, AM, PM, AM_PM;
 
@@ -34,15 +34,10 @@ public class DateTimePickerActivity extends AppCompatActivity {
         MONTH = calendar.get(Calendar.MONTH);
         YEAR = calendar.get(Calendar.YEAR);
         DATE = calendar.get(Calendar.DATE);
-        DATE = calendar.get(Calendar.SATURDAY);
         DAY_OF_WEEK = calendar.get(Calendar.DAY_OF_WEEK);
         MONTH_NAME = calendar.get(Calendar.MONTH);
-        AM_PM = calendar.get(Calendar.AM_PM);
-//        AM = calendar.get(Calendar.AM);
-//        PM = calendar.get(Calendar.PM);
 
         binding.showTesting.setText(weekName[DAY_OF_WEEK]+","+" "+monthName[MONTH_NAME]+" "+DAY);
-//        TIME = calendar.get(Calendar.TUESDAY);
 
         binding.showDate.setText(DAY+"/"+(MONTH+1)+"/"+YEAR+"\n"+ DATE+ AM+" "+PM);
 
@@ -51,7 +46,7 @@ public class DateTimePickerActivity extends AppCompatActivity {
             public void onClick(View view) {
                 DatePickerDialog datePickerDialog = new DatePickerDialog(DateTimePickerActivity.this, new DatePickerDialog.OnDateSetListener() {
                     @Override
-                    public void onDateSet(DatePicker datePicker, int dayOfMonth, int month, int year) {
+                    public void onDateSet(DatePicker datePicker, int year, int month, int dayOfMonth) {
                         binding.showDate.setText(dayOfMonth+"/"+(month+1)+"/"+year);
                     }
                 }, YEAR, MONTH, DAY);
@@ -62,7 +57,7 @@ public class DateTimePickerActivity extends AppCompatActivity {
         //TODO: 2. To Show Time Using Time Picker Dialog: -
         SECONDS = calendar.get(Calendar.SECOND);
         MINUTES = calendar.get(Calendar.MINUTE);
-        HOURS = calendar.get(Calendar.HOUR);
+        HOURS = calendar.get(Calendar.HOUR_OF_DAY);
 
         binding.showTime.setText(HOURS+":"+MINUTES+":"+SECONDS);
 
@@ -72,23 +67,13 @@ public class DateTimePickerActivity extends AppCompatActivity {
                 TimePickerDialog timePickerDialog = new TimePickerDialog(DateTimePickerActivity.this, new TimePickerDialog.OnTimeSetListener() {
                     @Override
                     public void onTimeSet(TimePicker timePicker, int hours, int minutes) {
-                        if(AM_PM == Calendar.AM){
-                            // AM
-                            binding.showTime.setText(hours+":"+minutes+""+"AM");
-                        }else if (AM_PM == Calendar.PM){
-                            // PM
-                            binding.showTime.setText(hours+":"+minutes+""+"PM");
-                        }
-//                        binding.showTime.setText(hours+":"+minutes+""+AM_PM);
-
-
-//                        String AM_PM;
-//                    if (hourOfDay>=0&&hourOfDay<12){
-//                        AM_PM=" AM";
-//                    }else {
-//                        AM_PM=" PM";
-//                    }
-//                    selectTime.setText ( hourOfDay + ":" + minute+""+AM_PM );
+                        String AM_PM;
+                    if (hours >= 12){
+                        AM_PM=" PM";
+                    }else {
+                        AM_PM=" AM";
+                    }
+                    binding.showTime.setText (hours + ":" + minutes+" "+AM_PM);
                     }
                 }, HOURS, MINUTES, false);
                 timePickerDialog.show();
