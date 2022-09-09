@@ -3,6 +3,7 @@ package com.chetu.demotp8;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.ProgressDialog;
+import android.content.Intent;
 import android.os.Bundle;
 import android.webkit.WebResourceRequest;
 import android.webkit.WebView;
@@ -31,6 +32,11 @@ public class WebViewActivity extends AppCompatActivity {
     class MyWebViewClient extends WebViewClient {
         @Override
         public boolean shouldOverrideUrlLoading(WebView view, WebResourceRequest request) {
+            if (request.getUrl().toString().contains(view.getUrl())) {
+
+            } else {
+                startActivity(new Intent(Intent.ACTION_VIEW, request.getUrl()));
+            }
             return super.shouldOverrideUrlLoading(view, request);
         }
         @Override

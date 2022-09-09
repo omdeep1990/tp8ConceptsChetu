@@ -41,6 +41,9 @@ public class NumberActivity extends AppCompatActivity {
                 binding.showMonth.setText("Current Value : "+monthName[numberPicker.getValue()]+"\n"+
                         "Old Value :"+monthName[oldValue]+"\n"+
                         "New Value :"+monthName[newValue]);
+
+                Util.customToast(NumberActivity.this, "Custom Toast Invoked From Number Activity");
+                Util.customToast("Simple Toast Called", NumberActivity.this);
             }
         });
     }
