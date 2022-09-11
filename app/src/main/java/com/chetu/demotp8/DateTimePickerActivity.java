@@ -17,9 +17,9 @@ public class DateTimePickerActivity extends AppCompatActivity {
     private ActivityDateTimePickerBinding binding;
     private Calendar calendar;
     private int DAY, MONTH, YEAR;
-    private String[] weekName = {"Saturday", "Sunday", "Monday", "Tuesday","Wednesday", "Thursday", "Friday",};
+    private String[] weekName = {"", "Sunday", "Monday", "Tuesday","Wednesday", "Thursday", "Friday", "Saturday"};
     private String[] monthName = {"January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"};
-    private int SECONDS, MINUTES, HOURS, DATE, DAY_OF_WEEK, MONTH_NAME, AM, PM, AM_PM;
+    private int MILLI_SECONDS, SECONDS, MINUTES, HOURS, DATE, DAY_OF_WEEK, MONTH_NAME;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,7 +39,7 @@ public class DateTimePickerActivity extends AppCompatActivity {
 
         binding.showTesting.setText(weekName[DAY_OF_WEEK]+","+" "+monthName[MONTH_NAME]+" "+DAY);
 
-        binding.showDate.setText(DAY+"/"+(MONTH+1)+"/"+YEAR+"\n"+ DATE+ AM+" "+PM);
+        binding.showDate.setText(DAY+"/"+(MONTH+1)+"/"+YEAR+"\n");
 
         binding.datePicker.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -55,11 +55,12 @@ public class DateTimePickerActivity extends AppCompatActivity {
         });
 
         //TODO: 2. To Show Time Using Time Picker Dialog: -
+        MILLI_SECONDS = calendar.get(Calendar.MILLISECOND);
         SECONDS = calendar.get(Calendar.SECOND);
         MINUTES = calendar.get(Calendar.MINUTE);
         HOURS = calendar.get(Calendar.HOUR_OF_DAY);
 
-        binding.showTime.setText(HOURS+":"+MINUTES+":"+SECONDS);
+        binding.showTime.setText(HOURS+":"+MINUTES+":"+SECONDS+":"+MILLI_SECONDS);
 
         binding.timePicker.setOnClickListener(new View.OnClickListener() {
             @Override

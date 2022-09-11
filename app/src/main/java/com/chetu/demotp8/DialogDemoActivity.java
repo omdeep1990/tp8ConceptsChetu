@@ -71,7 +71,8 @@ public class DialogDemoActivity extends AppCompatActivity implements View.OnClic
             btnSubmit.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-                    Toast.makeText(DialogDemoActivity.this, etFname.getText().toString()+" "+ etLname.getText().toString(), Toast.LENGTH_SHORT).show();
+                    Toast.makeText(DialogDemoActivity.this, etFname.getText().toString()+" "+
+                            etLname.getText().toString(), Toast.LENGTH_SHORT).show();
                     dialog.dismiss();
                 }
             });
