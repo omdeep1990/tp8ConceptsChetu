@@ -12,6 +12,7 @@ import android.view.ViewGroup;
 import android.view.Window;
 import android.widget.Toast;
 
+import com.chetu.demotp8.databinding.CustomDialogBinding;
 import com.google.android.material.button.MaterialButton;
 import com.google.android.material.textfield.TextInputEditText;
 
@@ -56,23 +57,39 @@ public class DialogDemoActivity extends AppCompatActivity implements View.OnClic
             alertDialog.getButton(DialogInterface.BUTTON_NEGATIVE).setTextColor(getResources().getColor(R.color.purple_200));
             btn.setText("Custom Dialog");
         } else if (btn.getText().toString().equals("Custom Dialog")) {
+            //TODO: 1st method to make custom dilaog: -
             Dialog dialog = new Dialog(this);
-            dialog.setContentView(R.layout.custom_dialog);
-            dialog.setCancelable(false);
+//            dialog.setContentView(R.layout.custom_dialog);
+//            dialog.setCancelable(false);
+//            dialog.show();
+////            Window window = dialog.getWindow();
+////            window.setLayout(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT);
+//
+//            TextInputEditText etFname = dialog.findViewById(R.id.first_name);
+//            TextInputEditText etLname = dialog.findViewById(R.id.last_name);
+//            MaterialButton btnSubmit = dialog.findViewById(R.id.submit_btn);
+//
+//
+//            btnSubmit.setOnClickListener(new View.OnClickListener() {
+//                @Override
+//                public void onClick(View view) {
+//                    Toast.makeText(DialogDemoActivity.this, etFname.getText().toString()+" "+
+//                            etLname.getText().toString(), Toast.LENGTH_SHORT).show();
+//                    dialog.dismiss();
+//                }
+//            });
+
+            //TODO: 2nd method to make custom dialog with viewBinding: -
+            CustomDialogBinding dialogBinding = CustomDialogBinding.inflate(getLayoutInflater());
+            dialog.setContentView(dialogBinding.getRoot());
             dialog.show();
             Window window = dialog.getWindow();
             window.setLayout(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT);
-
-            TextInputEditText etFname = dialog.findViewById(R.id.first_name);
-            TextInputEditText etLname = dialog.findViewById(R.id.last_name);
-            MaterialButton btnSubmit = dialog.findViewById(R.id.submit_btn);
-
-
-            btnSubmit.setOnClickListener(new View.OnClickListener() {
+            dialogBinding.submitBtn.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-                    Toast.makeText(DialogDemoActivity.this, etFname.getText().toString()+" "+
-                            etLname.getText().toString(), Toast.LENGTH_SHORT).show();
+                    Toast.makeText(DialogDemoActivity.this, dialogBinding.firstName.getText().toString()+" "+
+                            dialogBinding.lastName.getText().toString(), Toast.LENGTH_SHORT).show();
                     dialog.dismiss();
                 }
             });
