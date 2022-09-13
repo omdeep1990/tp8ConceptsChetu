@@ -3,13 +3,17 @@ package com.chetu.demotp8;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.DatePickerDialog;
+import android.app.Dialog;
 import android.app.TimePickerDialog;
 import android.os.Bundle;
 import android.view.View;
+import android.view.ViewGroup;
+import android.view.Window;
 import android.widget.DatePicker;
 import android.widget.TimePicker;
 
 import com.chetu.demotp8.databinding.ActivityDateTimePickerBinding;
+import com.chetu.demotp8.databinding.LayoutRatingBarBinding;
 
 import java.util.Calendar;
 
@@ -78,6 +82,34 @@ public class DateTimePickerActivity extends AppCompatActivity {
                     }
                 }, HOURS, MINUTES, false);
                 timePickerDialog.show();
+            }
+        });
+
+        binding.ratingBar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                LayoutRatingBarBinding barBinding = LayoutRatingBarBinding.inflate(getLayoutInflater());
+                Dialog dialog = new Dialog(DateTimePickerActivity.this);
+                dialog.setContentView(barBinding.getRoot());
+                dialog.setCancelable(false);
+                dialog.show();
+                Window window = dialog.getWindow();
+                window.setLayout(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT);
+
+                barBinding.cancelRatingBar.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        dialog.dismiss();
+                    }
+                });
+
+                barBinding.showRatingBar.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        Util.customToast(DateTimePickerActivity.this, "Your Rating is: "+barBinding.ratingBar.getRating());
+                        dialog.dismiss();
+                    }
+                });
             }
         });
     }

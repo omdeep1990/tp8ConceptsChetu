@@ -63,10 +63,9 @@ public class TaskActivity extends AppCompatActivity implements View.OnClickListe
         if (Phone.isEmpty()) {
             Util.customToast(this, "Please Enter Your Mobile Number");
             return;
-        } else {
-            mobileNo += tel+Phone;
         }
-        Intent intentCall = new Intent(Intent.ACTION_CALL, Uri.parse(mobileNo));
+        //TODO: Second method to concatenate string: -
+        Intent intentCall = new Intent(Intent.ACTION_CALL, Uri.parse("tel:"+Phone));
         startActivity(intentCall);
         Phone=" ";
     }
