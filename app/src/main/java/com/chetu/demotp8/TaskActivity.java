@@ -44,6 +44,8 @@ public class TaskActivity extends AppCompatActivity implements View.OnClickListe
                 }
                 Intent intentDial = new Intent(Intent.ACTION_DIAL);
                 intentDial.setData(Uri.parse(mobileNo));
+                //TODO: OR: -
+//                intentDial.setData(Uri.parse("tel:"+Phone));
                 startActivity(intentDial);
                 Phone=" ";
                 break;
