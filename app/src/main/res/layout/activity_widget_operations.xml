@@ -9,7 +9,8 @@
     <androidx.appcompat.widget.AppCompatAutoCompleteTextView
         android:id="@+id/auto_complete_text_view"
         android:layout_margin="10dp"
-        android:hint="Enter Your Country Name"
+        android:completionThreshold="1"
+        android:hint="@string/enter_your_country_name"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:layout_constraintTop_toTopOf="parent"

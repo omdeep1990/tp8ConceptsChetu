@@ -3,4 +3,5 @@
     <string name="btn_name">Click Here</string>
     <string name="cancel">Cancel</string>
     <string name="rate_us">Rate Us</string>
+    <string name="enter_your_country_name">Enter Your Country Name</string>
 </resources>
