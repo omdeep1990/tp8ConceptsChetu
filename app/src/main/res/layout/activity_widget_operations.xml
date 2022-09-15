@@ -4,12 +4,13 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:layout_margin="5dp"
     tools:context=".WidgetOperationsActivity">
 
     <androidx.appcompat.widget.AppCompatAutoCompleteTextView
         android:id="@+id/auto_complete_text_view"
         android:layout_margin="10dp"
-        android:completionThreshold="1"
+        android:completionThreshold="2"
         android:hint="@string/enter_your_country_name"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -17,4 +18,46 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"/>
 
+    <androidx.appcompat.widget.AppCompatMultiAutoCompleteTextView
+        android:id="@+id/multi_auto_cmt_txt_view"
+        android:hint="@string/enter_multiple_country_names"
+        android:completionThreshold="2"
+        android:layout_margin="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/auto_complete_text_view"/>
+
+    <androidx.appcompat.widget.AppCompatSpinner
+        android:id="@+id/spinner"
+        android:layout_margin="10dp"
+        android:spinnerMode="dialog"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/multi_auto_cmt_txt_view"/>
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/listView_btn"
+        android:text="List View"
+        android:textStyle="bold"
+        android:textSize="24dp"
+        android:textColor="@color/black"
+        app:cornerRadius="40dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/spinner" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/custom_list_view"
+        android:text="Custom ListView"
+        android:textStyle="bold"
+        android:textSize="22dp"
+        android:textColor="@color/black"
+        app:cornerRadius="40dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/listView_btn" />
 </androidx.constraintlayout.widget.ConstraintLayout>

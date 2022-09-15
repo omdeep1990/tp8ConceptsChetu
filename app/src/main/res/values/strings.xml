@@ -4,4 +4,5 @@
     <string name="cancel">Cancel</string>
     <string name="rate_us">Rate Us</string>
     <string name="enter_your_country_name">Enter Your Country Name</string>
+    <string name="enter_multiple_country_names">Enter Multiple Country Names.</string>
 </resources>
