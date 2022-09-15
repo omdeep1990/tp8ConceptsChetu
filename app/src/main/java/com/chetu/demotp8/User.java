@@ -2,7 +2,9 @@ package com.chetu.demotp8;
 
 import java.io.Serializable;
 
-public class User implements Serializable {
+//TODO: Serializable-->We can make it Serializable also for sending multiple data: -
+//public class User implements Serializable {
+public class User {
     private String firstName;
     private String lastName;
     private String mobileNo;

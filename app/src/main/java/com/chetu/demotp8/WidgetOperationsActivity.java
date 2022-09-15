@@ -15,6 +15,7 @@ import android.widget.MultiAutoCompleteTextView;
 import com.chetu.demotp8.databinding.ActivityWidgetOperationsBinding;
 import com.chetu.demotp8.databinding.CustomListviewExampleBinding;
 import com.chetu.demotp8.databinding.ListViewLayoutBinding;
+import com.google.gson.Gson;
 
 import java.util.ArrayList;
 
@@ -118,8 +119,13 @@ public class WidgetOperationsActivity extends AppCompatActivity implements Adapt
                 break;
 
             case R.id.send_btn:
+                //TODO: To show the data in listView: -
                 Intent intent = new Intent(this, ListViewActivity.class);
-                intent.putExtra("user_List", userList);
+                //TODO: 1. We can send data by making it serializable also: -
+//                intent.putExtra("user_List", userList);
+
+                //TODO: 2. This is the second method to send data using
+                intent.putExtra("user_List", new Gson().toJson(userList));
                 startActivity(intent);
 
         }
