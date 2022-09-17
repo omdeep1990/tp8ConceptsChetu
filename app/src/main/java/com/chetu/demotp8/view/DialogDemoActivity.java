@@ -1,4 +1,4 @@
-package com.chetu.demotp8;
+package com.chetu.demotp8.view;
 
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
@@ -12,9 +12,9 @@ import android.view.ViewGroup;
 import android.view.Window;
 import android.widget.Toast;
 
+import com.chetu.demotp8.R;
 import com.chetu.demotp8.databinding.CustomDialogBinding;
 import com.google.android.material.button.MaterialButton;
-import com.google.android.material.textfield.TextInputEditText;
 
 public class DialogDemoActivity extends AppCompatActivity implements View.OnClickListener {
     private MaterialButton btn;

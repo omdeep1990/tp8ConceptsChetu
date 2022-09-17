@@ -1,4 +1,4 @@
-package com.chetu.demotp8;
+package com.chetu.demotp8.view;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -12,9 +12,12 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.MultiAutoCompleteTextView;
 
+import com.chetu.demotp8.R;
 import com.chetu.demotp8.databinding.ActivityWidgetOperationsBinding;
 import com.chetu.demotp8.databinding.CustomListviewExampleBinding;
 import com.chetu.demotp8.databinding.ListViewLayoutBinding;
+import com.chetu.demotp8.model.User;
+import com.chetu.demotp8.utilities.Util;
 import com.google.gson.Gson;
 
 import java.util.ArrayList;

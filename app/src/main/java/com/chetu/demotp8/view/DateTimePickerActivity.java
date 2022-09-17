@@ -1,4 +1,4 @@
-package com.chetu.demotp8;
+package com.chetu.demotp8.view;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -14,6 +14,7 @@ import android.widget.TimePicker;
 
 import com.chetu.demotp8.databinding.ActivityDateTimePickerBinding;
 import com.chetu.demotp8.databinding.LayoutRatingBarBinding;
+import com.chetu.demotp8.utilities.Util;
 
 import java.util.Calendar;
 

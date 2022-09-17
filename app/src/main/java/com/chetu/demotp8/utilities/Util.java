@@ -1,4 +1,4 @@
-package com.chetu.demotp8;
+package com.chetu.demotp8.utilities;
 
 import android.app.Activity;
 import android.view.Gravity;
@@ -6,6 +6,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import com.chetu.demotp8.R;
 
 public class Util {
 

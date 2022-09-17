@@ -1,4 +1,4 @@
-package com.chetu.demotp8;
+package com.chetu.demotp8.view;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -9,6 +9,8 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
+
+import com.chetu.demotp8.R;
 
 public class SimpleDemoActivity extends AppCompatActivity implements View.OnClickListener {
     private Button btnClick, btnSubmit;

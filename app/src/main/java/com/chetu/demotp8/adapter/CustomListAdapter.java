@@ -1,4 +1,4 @@
-package com.chetu.demotp8;
+package com.chetu.demotp8.adapter;
 
 import android.content.Context;
 import android.view.LayoutInflater;
@@ -6,6 +6,9 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 
+import com.chetu.demotp8.R;
+import com.chetu.demotp8.interf.OnItemClickListener;
+import com.chetu.demotp8.model.User;
 import com.google.android.material.textview.MaterialTextView;
 
 import java.util.ArrayList;
@@ -13,10 +16,12 @@ import java.util.ArrayList;
 public class CustomListAdapter extends BaseAdapter {
     private Context context;
     private ArrayList<User> userArrayList;
+    private OnItemClickListener onItemClickListener;
 
-    public CustomListAdapter(Context context, ArrayList<User> userArrayList) {
+    public CustomListAdapter(Context context, ArrayList<User> userArrayList, OnItemClickListener onItemClickListener) {
         this.context = context;
         this.userArrayList = userArrayList;
+        this.onItemClickListener = onItemClickListener;
     }
 
     @Override
@@ -44,6 +49,14 @@ public class CustomListAdapter extends BaseAdapter {
         tvFname.setText(userArrayList.get(position).getFirstName());
         tvLName.setText(userArrayList.get(position).getLastName());
         tvMobileNo.setText(userArrayList.get(position).getMobileNo());
+
+        //TODO: Similarly we can setOn click listener on any view of the viewGroup: -
+        view.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                onItemClickListener.onItemClick(position, userArrayList.get(position));
+            }
+        });
         return view;
     }
 }

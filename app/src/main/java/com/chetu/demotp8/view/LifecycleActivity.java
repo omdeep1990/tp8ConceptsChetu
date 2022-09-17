@@ -1,10 +1,12 @@
-package com.chetu.demotp8;
+package com.chetu.demotp8.view;
 
 import android.os.Bundle;
 import android.util.Log;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
+
+import com.chetu.demotp8.R;
 
 public class LifecycleActivity extends AppCompatActivity {
     private String TAG = "DemoActivity";

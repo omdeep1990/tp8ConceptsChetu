@@ -1,4 +1,4 @@
-package com.chetu.demotp8;
+package com.chetu.demotp8.view;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.widget.NumberPicker;
 
 import com.chetu.demotp8.databinding.ActivityNumberBinding;
+import com.chetu.demotp8.utilities.Util;
 
 public class NumberActivity extends AppCompatActivity {
     private ActivityNumberBinding binding;

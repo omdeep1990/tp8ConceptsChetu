@@ -1,10 +1,13 @@
-package com.chetu.demotp8;
+package com.chetu.demotp8.view;
 
 import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
-import android.util.Log;
 
+import com.chetu.demotp8.adapter.CustomListAdapter;
+import com.chetu.demotp8.interf.OnItemClickListener;
+import com.chetu.demotp8.model.User;
 import com.chetu.demotp8.databinding.ActivityListViewBinding;
+import com.chetu.demotp8.utilities.Util;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 
@@ -28,7 +31,12 @@ public class ListViewActivity extends AppCompatActivity {
 
         ArrayList<User> userArrayList = new Gson().fromJson(getIntent().getStringExtra("user_List"),
                 new TypeToken<ArrayList<User>>(){}.getType());
-        CustomListAdapter customListAdapter = new CustomListAdapter(this, userArrayList);
+        CustomListAdapter customListAdapter = new CustomListAdapter(this, userArrayList, new OnItemClickListener() {
+            @Override
+            public void onItemClick(int position, User user) {
+                Util.customToast(ListViewActivity.this, userArrayList.get(position).getFirstName()+" "+ userArrayList.get(position).getLastName());
+            }
+        });
         binding.listView.setAdapter(customListAdapter);
 
 

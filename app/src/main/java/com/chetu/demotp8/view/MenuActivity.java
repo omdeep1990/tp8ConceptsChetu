@@ -1,4 +1,4 @@
-package com.chetu.demotp8;
+package com.chetu.demotp8.view;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -14,6 +14,7 @@ import android.view.View;
 import android.widget.PopupMenu;
 import android.widget.Toast;
 
+import com.chetu.demotp8.R;
 import com.chetu.demotp8.databinding.ActivityMenuBinding;
 
 public class MenuActivity extends AppCompatActivity implements View.OnClickListener {
