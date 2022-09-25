@@ -1,4 +1,4 @@
-package com.chetu.demotp8.view;
+package com.chetu.demotp8.javaConcepts.view;
 
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;

@@ -5,4 +5,6 @@
     <string name="rate_us">Rate Us</string>
     <string name="enter_your_country_name">Enter Your Country Name</string>
     <string name="enter_multiple_country_names">Enter Multiple Country Names.</string>
+    <string name="submit">Submit</string>
+    <string name="show_data">Clear Data</string>
 </resources>

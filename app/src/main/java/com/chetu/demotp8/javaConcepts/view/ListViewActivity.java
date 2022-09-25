@@ -1,13 +1,16 @@
-package com.chetu.demotp8.view;
+package com.chetu.demotp8.javaConcepts.view;
 
 import androidx.appcompat.app.AppCompatActivity;
+
+import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 
-import com.chetu.demotp8.adapter.CustomListAdapter;
-import com.chetu.demotp8.interf.OnItemClickListener;
-import com.chetu.demotp8.model.User;
+import com.chetu.demotp8.javaConcepts.adapter.CustomListAdapter;
+import com.chetu.demotp8.javaConcepts.interf.OnItemClickListener;
+import com.chetu.demotp8.javaConcepts.utilities.Util;
+import com.chetu.demotp8.javaConcepts.model.User;
 import com.chetu.demotp8.databinding.ActivityListViewBinding;
-import com.chetu.demotp8.utilities.Util;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 
@@ -16,7 +19,7 @@ import java.util.ArrayList;
 public class ListViewActivity extends AppCompatActivity {
     private ActivityListViewBinding binding;
     //TODO: Serializable-->
-    ArrayList<String> myList;
+//    ArrayList<String> myList;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,6 +37,8 @@ public class ListViewActivity extends AppCompatActivity {
         CustomListAdapter customListAdapter = new CustomListAdapter(this, userArrayList, new OnItemClickListener() {
             @Override
             public void onItemClick(int position, User user) {
+                Intent intent = new Intent(Intent.ACTION_CALL, Uri.parse("tel:"+userArrayList.get(position).getMobileNo()));
+                startActivity(intent);
                 Util.customToast(ListViewActivity.this, userArrayList.get(position).getFirstName()+" "+ userArrayList.get(position).getLastName());
             }
         });

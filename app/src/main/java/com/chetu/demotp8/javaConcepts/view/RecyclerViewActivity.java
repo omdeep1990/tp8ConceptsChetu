@@ -1,16 +1,15 @@
-package com.chetu.demotp8.view;
+package com.chetu.demotp8.javaConcepts.view;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 
 import android.os.Bundle;
 
-import com.chetu.demotp8.R;
-import com.chetu.demotp8.adapter.RecyclerViewAdapter;
+import com.chetu.demotp8.javaConcepts.adapter.RecyclerViewAdapter;
 import com.chetu.demotp8.databinding.ActivityRecyclerViewBinding;
-import com.chetu.demotp8.interf.OnItemClickListener;
-import com.chetu.demotp8.model.User;
-import com.chetu.demotp8.utilities.Util;
+import com.chetu.demotp8.javaConcepts.interf.OnItemClickListener;
+import com.chetu.demotp8.javaConcepts.utilities.Util;
+import com.chetu.demotp8.javaConcepts.model.User;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 

@@ -1,6 +1,8 @@
-package com.chetu.demotp8.adapter;
+package com.chetu.demotp8.javaConcepts.adapter;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
@@ -8,8 +10,8 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.chetu.demotp8.R;
-import com.chetu.demotp8.interf.OnItemClickListener;
-import com.chetu.demotp8.model.User;
+import com.chetu.demotp8.javaConcepts.interf.OnItemClickListener;
+import com.chetu.demotp8.javaConcepts.model.User;
 import com.google.android.material.textview.MaterialTextView;
 
 import java.util.ArrayList;
@@ -28,11 +30,12 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
     @NonNull
     @Override
     public MyViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        return null;
+        View view = LayoutInflater.from(context).inflate(R.layout.layout_list_view_data, parent, false);
+        return new MyViewHolder(view);
     }
 
     @Override
-    public void onBindViewHolder(@NonNull MyViewHolder holder, int position) {
+    public void onBindViewHolder(@NonNull MyViewHolder holder, @SuppressLint("RecyclerView") int position) {
         User user = userList.get(position);
         holder.firstName.setText(user.getFirstName());
         holder.lastName.setText(user.getLastName());

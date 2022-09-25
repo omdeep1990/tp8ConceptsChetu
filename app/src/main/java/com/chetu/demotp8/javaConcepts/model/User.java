@@ -1,4 +1,4 @@
-package com.chetu.demotp8.model;
+package com.chetu.demotp8.javaConcepts.model;
 
 import java.io.Serializable;
 

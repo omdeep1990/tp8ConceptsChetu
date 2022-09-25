@@ -1,4 +1,4 @@
-package com.chetu.demotp8.view;
+package com.chetu.demotp8.javaConcepts.view;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
@@ -13,7 +13,7 @@ import android.view.View;
 
 import com.chetu.demotp8.R;
 import com.chetu.demotp8.databinding.ActivityTaskBinding;
-import com.chetu.demotp8.utilities.Util;
+import com.chetu.demotp8.javaConcepts.utilities.Util;
 
 public class TaskActivity extends AppCompatActivity implements View.OnClickListener {
     private ActivityTaskBinding binding;

@@ -1,4 +1,4 @@
-package com.chetu.demotp8.utilities;
+package com.chetu.demotp8.javaConcepts.utilities;
 
 import android.app.Activity;
 import android.view.Gravity;

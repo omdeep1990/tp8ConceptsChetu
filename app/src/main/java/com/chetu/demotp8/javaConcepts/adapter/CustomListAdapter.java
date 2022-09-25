@@ -1,4 +1,4 @@
-package com.chetu.demotp8.adapter;
+package com.chetu.demotp8.javaConcepts.adapter;
 
 import android.content.Context;
 import android.view.LayoutInflater;
@@ -7,8 +7,8 @@ import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 
 import com.chetu.demotp8.R;
-import com.chetu.demotp8.interf.OnItemClickListener;
-import com.chetu.demotp8.model.User;
+import com.chetu.demotp8.javaConcepts.interf.OnItemClickListener;
+import com.chetu.demotp8.javaConcepts.model.User;
 import com.google.android.material.textview.MaterialTextView;
 
 import java.util.ArrayList;
@@ -26,7 +26,7 @@ public class CustomListAdapter extends BaseAdapter {
 
     @Override
     public int getCount() {
-        return userArrayList.size();
+       ; return userArrayList.size();
     }
 
     @Override

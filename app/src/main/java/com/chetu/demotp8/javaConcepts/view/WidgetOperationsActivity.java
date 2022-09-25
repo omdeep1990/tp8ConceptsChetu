@@ -1,4 +1,4 @@
-package com.chetu.demotp8.view;
+package com.chetu.demotp8.javaConcepts.view;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -16,8 +16,8 @@ import com.chetu.demotp8.R;
 import com.chetu.demotp8.databinding.ActivityWidgetOperationsBinding;
 import com.chetu.demotp8.databinding.CustomListviewExampleBinding;
 import com.chetu.demotp8.databinding.ListViewLayoutBinding;
-import com.chetu.demotp8.model.User;
-import com.chetu.demotp8.utilities.Util;
+import com.chetu.demotp8.javaConcepts.model.User;
+import com.chetu.demotp8.javaConcepts.utilities.Util;
 import com.google.gson.Gson;
 
 import java.util.ArrayList;
@@ -61,6 +61,7 @@ public class WidgetOperationsActivity extends AppCompatActivity implements Adapt
         binding.customListView.setOnClickListener(this);
 
         dialog = new Dialog(this);
+
     }
 
     @Override
@@ -147,6 +148,7 @@ public class WidgetOperationsActivity extends AppCompatActivity implements Adapt
     @Override
     public void onItemSelected(AdapterView<?> adapterView, View view, int position, long l) {
         String months = adapterView.getItemAtPosition(position).toString();
+        binding.showSpinnerValue.setText(months);
         Util.customToast(WidgetOperationsActivity.this, months);
     }
 
