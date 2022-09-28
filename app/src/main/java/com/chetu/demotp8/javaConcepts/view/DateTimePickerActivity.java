@@ -109,6 +109,7 @@ public class DateTimePickerActivity extends AppCompatActivity {
                     public void onClick(View view) {
                         Util.customToast(DateTimePickerActivity.this, "Your Rating is: "+barBinding.ratingBar.getRating());
                         dialog.dismiss();
+
                     }
                 });
             }
