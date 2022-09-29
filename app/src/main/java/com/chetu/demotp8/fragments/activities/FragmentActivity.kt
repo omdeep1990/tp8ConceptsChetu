@@ -1,4 +1,4 @@
-package com.chetu.demotp8.fragments
+package com.chetu.demotp8.fragments.activities
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle

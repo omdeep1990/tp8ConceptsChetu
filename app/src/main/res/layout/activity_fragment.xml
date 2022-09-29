@@ -4,11 +4,11 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".fragments.FragmentActivity">
+    tools:context=".fragments.activities.FragmentActivity">
 
     <androidx.fragment.app.FragmentContainerView
         android:id="@+id/fcv_1"
-        android:name="com.chetu.demotp8.fragments.FragmentOne"
+        android:name="com.chetu.demotp8.fragments.fragments.FragmentOne"
         tools:layout="@layout/fragment_one"
         android:layout_width="match_parent"
         android:layout_height="0dp"
@@ -17,7 +17,7 @@
 
     <androidx.fragment.app.FragmentContainerView
         android:id="@+id/fcv_2"
-        android:name="com.chetu.demotp8.fragments.FragmentTwo"
+        android:name="com.chetu.demotp8.fragments.fragments.FragmentTwo"
         tools:layout="@layout/fragment_two"
         android:layout_width="match_parent"
         android:layout_height="0dp"
