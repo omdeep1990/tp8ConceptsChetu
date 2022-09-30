@@ -10,7 +10,7 @@ import com.google.android.material.tabs.TabLayoutMediator
 
 class TabLayoutViewPagerActivity : AppCompatActivity() {
     private lateinit var binding : ActivityTabLayoutViewPagerBinding
-    private val tabList = arrayOf("Chat", "Call", "Status", "Web")
+    private val tabList = arrayOf("Chat", "Call", "Status", "Web", "Camera")
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -20,9 +20,10 @@ class TabLayoutViewPagerActivity : AppCompatActivity() {
         val adapter = ViewPageAdapter(this)
         binding.viewPager.adapter = adapter
 
-        TabLayoutMediator.TabConfigurationStrategy { tab, position ->
+        //TODO: TabLayoutMediator for interaction between TabLayout and ViewPager: -
+        TabLayoutMediator(binding.tabLayout, binding.viewPager,) {tab, position ->
             tab.text = tabList[position]
-        }
-//        TabLayoutMediator.
+
+        }.attach()
     }
 }

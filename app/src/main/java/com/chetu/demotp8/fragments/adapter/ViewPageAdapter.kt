@@ -3,13 +3,10 @@ package com.chetu.demotp8.fragments.adapter
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentActivity
 import androidx.viewpager2.adapter.FragmentStateAdapter
-import com.chetu.demotp8.fragments.fragments.FragmentDisplsy
-import com.chetu.demotp8.fragments.fragments.FragmentInput
-import com.chetu.demotp8.fragments.fragments.FragmentOne
-import com.chetu.demotp8.fragments.fragments.FragmentTwo
+import com.chetu.demotp8.fragments.fragments.*
 
-const val FG_COUNT = 4
-class ViewPageAdapter(private val fragment : FragmentActivity) : FragmentStateAdapter(fragment) {
+const val FG_COUNT = 5
+class ViewPageAdapter(fragmentActivity : FragmentActivity) : FragmentStateAdapter(fragmentActivity) {
 
     override fun getItemCount(): Int {
         return FG_COUNT
@@ -24,7 +21,10 @@ class ViewPageAdapter(private val fragment : FragmentActivity) : FragmentStateAd
                 FragmentTwo()
             }
             2 -> {
-                FragmentInput()
+                FragmentThree()
+            }
+            3 -> {
+                FragmentFour()
             }
             else -> {
                 FragmentDisplsy()
