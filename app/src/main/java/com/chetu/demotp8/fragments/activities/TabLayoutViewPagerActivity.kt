@@ -10,7 +10,7 @@ import com.google.android.material.tabs.TabLayoutMediator
 
 class TabLayoutViewPagerActivity : AppCompatActivity() {
     private lateinit var binding : ActivityTabLayoutViewPagerBinding
-    private val tabList = arrayOf("Chat", "Call", "Status", "Web", "Camera")
+    private val tabList = arrayOf("Chat", "Call", "Status", "Web", "Camera", "Demo")
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

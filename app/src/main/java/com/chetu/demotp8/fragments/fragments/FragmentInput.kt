@@ -17,7 +17,7 @@ class FragmentInput : Fragment() {
 
     override fun onAttach(context: Context) {
         super.onAttach(context)
-        //TODO: TypCasting context as Activity and activity as Interface: -
+        //TODO: TypeCasting context as Activity and activity as Interface: -
         var activity : Activity = context as Activity
         onInputTextListener = activity as OnInputTextListener
     }

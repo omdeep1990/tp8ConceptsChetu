@@ -5,7 +5,7 @@ import androidx.fragment.app.FragmentActivity
 import androidx.viewpager2.adapter.FragmentStateAdapter
 import com.chetu.demotp8.fragments.fragments.*
 
-const val FG_COUNT = 5
+const val FG_COUNT = 6
 class ViewPageAdapter(fragmentActivity : FragmentActivity) : FragmentStateAdapter(fragmentActivity) {
 
     override fun getItemCount(): Int {
@@ -25,6 +25,9 @@ class ViewPageAdapter(fragmentActivity : FragmentActivity) : FragmentStateAdapte
             }
             3 -> {
                 FragmentFour()
+            }
+            4 -> {
+                FragmentDemo()
             }
             else -> {
                 FragmentDisplsy()
