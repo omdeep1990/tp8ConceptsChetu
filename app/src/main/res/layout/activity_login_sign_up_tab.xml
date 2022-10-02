@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".fragments.activities.TabLayoutViewPagerActivity">
+    tools:context=".fragments.activities.LoginSignUpTabActivity">
 
     <com.google.android.material.tabs.TabLayout
         android:id="@+id/tab_layout"
@@ -15,8 +15,6 @@
         app:tabTextColor="@color/white"
         app:tabIndicatorColor="@color/white"
         app:tabMode="scrollable"
-
-        app:tabMinWidth="300dp"
         app:tabGravity="fill"
         app:tabPadding="20dp"
         app:tabSelectedTextColor="@color/white"
