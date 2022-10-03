@@ -21,7 +21,8 @@ class FragmentSignUp : Fragment(), TextWatcher {
         binding.confirmPassword.addTextChangedListener(this)
         return binding.root
     }
-    private fun validateData() : Boolean {
+
+    private fun validateUsername() : Boolean {
         if (binding.username.text.toString().isEmpty()) {
             binding.username.error = "Invalid Username"
             binding.username.requestFocus()
@@ -31,6 +32,10 @@ class FragmentSignUp : Fragment(), TextWatcher {
             binding.username.requestFocus()
             return false
         }
+        return true
+    }
+
+    private fun validatePassword() : Boolean {
         if (!binding.password.text.toString().matches("^(?=.*[0-9])(?=.*[A-Z])(?=.*[@#\$%^&+=!])(?=\\\\S+\$).{4,}\$".toRegex())) {
             binding.password.error = "Password Must be Strong"
             binding.password.requestFocus()
@@ -40,23 +45,74 @@ class FragmentSignUp : Fragment(), TextWatcher {
             binding.password.requestFocus()
             return false
         }
+        return true
+    }
+
+    private fun validateConfirmPassword() : Boolean {
         if (binding.confirmPassword.text.toString() != binding.password.text.toString()) {
-            binding.password.error = "Password & Confirm Password are not same."
-            binding.password.requestFocus()
+            binding.confirmPassword.error = "Password & Confirm Password are not same."
+            binding.confirmPassword.requestFocus()
             return false
         }
         return true
     }
+//    private fun validateData(): Boolean {
+//        if (binding.username.text.toString().isEmpty()) {
+//            binding.username.error = "Invalid Username"
+//            binding.username.requestFocus()
+//            return
+//        } else if (binding.username.text.toString().contains(" ".toRegex())) {
+//            binding.username.error = "No Space Allowed"
+//            binding.username.requestFocus()
+//            return
+//        }else if (!binding.password.text.toString().matches("^(?=.*[0-9])(?=.*[A-Z])(?=.*[@#\$%^&+=!])(?=\\\\S+\$).{4,}\$".toRegex())) {
+//            binding.password.error = "Password Must be Strong"
+//            binding.password.requestFocus()
+//            return
+//        } else if (binding.password.text.toString().contains(" ")) {
+//            binding.password.error = "No Space Allowed"
+//            binding.password.requestFocus()
+//            return
+//        } else if (binding.confirmPassword.text.toString() != binding.password.text.toString()) {
+//            binding.confirmPassword.error = "Password & Confirm Password are not same."
+//            binding.confirmPassword.requestFocus()
+//            return
+//        }
+//    }
 
     override fun beforeTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
 //        binding.signUpBtn.isEnabled = validateData()
+        if (binding.username.text.toString().isEmpty()) {
+            binding.username.error = "Invalid Username"
+            binding.username.requestFocus()
+            return
+        } else if (binding.username.text.toString().contains(" ".toRegex())) {
+            binding.username.error = "No Space Allowed"
+            binding.username.requestFocus()
+            return
+            } else if (!binding.password.text.toString().matches("^(?=.*[0-9])(?=.*[A-Z])(?=.*[@#\$%^&+=!])(?=\\\\S+\$).{4,}\$".toRegex())) {
+            binding.password.error = "Password Must be Strong"
+            binding.password.requestFocus()
+            return
+        } else if (binding.password.text.toString().contains(" ")) {
+            binding.password.error = "No Space Allowed"
+            binding.password.requestFocus()
+            return
+        } else if (binding.confirmPassword.text.toString() != binding.password.text.toString()) {
+            binding.confirmPassword.error = "Password & Confirm Password are not same."
+            binding.confirmPassword.requestFocus()
+            return
+        }
     }
 
     override fun onTextChanged(charSequence : CharSequence?, p1: Int, p2: Int, p3: Int) {
-        binding.signUpBtn.isEnabled = validateData()
+//        binding.signUpBtn.isEnabled = validateData()
+//        binding.signUpBtn.isEnabled = validateUsername()
+//        binding.signUpBtn.isEnabled = validatePassword()
+//        binding.signUpBtn.isEnabled = validateConfirmPassword()
     }
 
-    override fun afterTextChanged(p0: Editable?) {
+    override fun afterTextChanged(editable: Editable?) {
 
     }
 }
