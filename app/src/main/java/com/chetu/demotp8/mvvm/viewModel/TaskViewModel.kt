@@ -9,7 +9,7 @@ class TaskViewModel : ViewModel() {
         return count
     }
 
-    fun getUpdatedCount() : Int {
-        return count+count
+    fun getUpdatedCount(input : Int) {
+        count+=input
     }
 }
