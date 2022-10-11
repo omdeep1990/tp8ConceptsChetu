@@ -2,6 +2,7 @@ package com.chetu.demotp8.mvvm.ui
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.ViewModelProvider
 import com.chetu.demotp8.R
@@ -24,7 +25,7 @@ class SharedPreferenceActivity : AppCompatActivity() {
         binding.btnSave.setOnClickListener {
             viewModel.setUsername(binding.username.text.toString())
             viewModel.setPassword(binding.password.text.toString())
-            binding.showData.text = viewModel.getUsername().toString()
+            binding.showData.text = viewModel.getUsername()!!+","+viewModel.getPassword()!!
         }
 
     }

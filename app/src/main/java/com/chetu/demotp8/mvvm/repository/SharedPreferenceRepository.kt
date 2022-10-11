@@ -9,7 +9,6 @@ const val USERNAME = "username"
 const val PASSWORD = "password"
 class SharedPreferenceRepository(private var context : Context) {
     private var sharedPreferences : SharedPreferences = context.getSharedPreferences(MY_TABLE, Context.MODE_PRIVATE)
-    //TODO: Let's see
     private var editor : Editor = sharedPreferences.edit()
 
     fun setUsername(username : String) {
@@ -22,10 +21,10 @@ class SharedPreferenceRepository(private var context : Context) {
         editor.commit()
     }
 
-    fun getUsername() {
-        sharedPreferences.getString(USERNAME, null)
+    fun getUsername() : String? {
+        return sharedPreferences.getString(USERNAME, "")
     }
-    fun getPassword() {
-        sharedPreferences.getString(PASSWORD, null)
+    fun getPassword() : String? {
+        return sharedPreferences.getString(PASSWORD, "")
     }
 }

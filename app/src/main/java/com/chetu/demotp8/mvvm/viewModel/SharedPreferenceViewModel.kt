@@ -14,10 +14,10 @@ class SharedPreferenceViewModel(private val context: Context) : ViewModel() {
     fun setPassword(password : String) {
         spRepository.setPassword(password)
     }
-    fun getUsername() {
-        spRepository.getUsername()
+    fun getUsername() : String? {
+        return spRepository.getUsername()
     }
-    fun getPassword() {
-        spRepository.getPassword()
+    fun getPassword() : String? {
+        return spRepository.getPassword()
     }
 }
