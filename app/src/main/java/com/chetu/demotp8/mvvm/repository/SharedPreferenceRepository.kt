@@ -27,4 +27,7 @@ class SharedPreferenceRepository(private var context : Context) {
     fun getPassword() : String? {
         return sharedPreferences.getString(PASSWORD, "")
     }
+    fun getBoolean() : Boolean {
+        return sharedPreferences.getBoolean(USERNAME, false)
+    }
 }
