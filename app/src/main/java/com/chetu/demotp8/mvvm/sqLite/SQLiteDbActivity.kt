@@ -11,6 +11,7 @@ import android.view.Window
 import androidx.compose.ui.window.Dialog
 import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.ViewModelProvider
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.chetu.demotp8.R
 import com.chetu.demotp8.databinding.ActivitySqliteDbBinding
 import com.chetu.demotp8.databinding.LayoutUserDataBinding
@@ -27,6 +28,11 @@ class SQLiteDbActivity : AppCompatActivity() {
         factory = SQLiteFactory(this)
         viewModel = ViewModelProvider(this, factory)[SQLiteViewModel::class.java]
 
+        val detailList = viewModel.getDataList()
+        val adapter = MyRecyclerViewAdapter(detailList)
+        binding.recyclerView.layoutManager = LinearLayoutManager(this)
+        binding.recyclerView.adapter = adapter
+        adapter.notifyDataSetChanged()
 
     }
 

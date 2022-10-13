@@ -2,6 +2,7 @@ package com.chetu.demotp8.mvvm.sqLite
 
 import android.content.ContentValues
 import android.content.Context
+import android.database.Cursor
 import android.database.sqlite.SQLiteDatabase
 import android.database.sqlite.SQLiteOpenHelper
 import android.widget.Toast
@@ -30,6 +31,25 @@ class SQLiteRepository(private val context: Context) {
         } else {
             Toast.makeText(context, "Something Went Wrong. Please Try Again Later....", Toast.LENGTH_SHORT).show()
         }
+    }
+
+    fun getPersonalData() : List<PersonalData> {
+        var personDataList : MutableList<PersonalData> = ArrayList<PersonalData>()
+
+        val columnList = arrayOf(FIRST_NAME, LAST_NAME, MOBILE_NO)
+        val cursor : Cursor = sqLiteDb.query(TABLE_NAME, columnList, null, null, null, null, null)
+//        if (cursor.count > 0) {
+            if (cursor.moveToFirst()) {
+                do {
+                    val fName : String = cursor.getString(0)
+                    val lName : String = cursor.getString(1)
+                    val mobile : String = cursor.getString(2)
+                    val personalData = PersonalData(fName, lName, mobile)
+                    personDataList.add(personalData)
+                } while (cursor.moveToNext())
+            }
+//        }
+        return personDataList
     }
 
     inner class MyDbHelper(private val context: Context) : SQLiteOpenHelper(context, DB_NAME, null, DB_VERSION) {
