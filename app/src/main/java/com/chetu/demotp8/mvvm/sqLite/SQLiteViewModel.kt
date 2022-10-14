@@ -14,4 +14,16 @@ class SQLiteViewModel(private val context : Context) : ViewModel() {
     fun getDataList() : List<PersonalData> {
         return repository.getPersonalData()
     }
+
+    fun updateDataList(srNo : String, fName : String, lName : String, mobile : String) {
+        repository.updatePersonalData(srNo, fName, lName, mobile)
+    }
+
+    fun deleteSingleData(srNo : String) {
+        repository.deleteSingleData(srNo)
+    }
+
+    fun deleteAllData() {
+        repository.deleteAllData()
+    }
 }

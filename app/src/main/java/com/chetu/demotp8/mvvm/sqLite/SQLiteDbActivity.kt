@@ -20,6 +20,7 @@ class SQLiteDbActivity : AppCompatActivity() {
     private lateinit var binding : ActivitySqliteDbBinding
     private lateinit var factory : SQLiteFactory
     private lateinit var viewModel: SQLiteViewModel
+    private lateinit var adapter : MyRecyclerViewAdapter
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -29,10 +30,11 @@ class SQLiteDbActivity : AppCompatActivity() {
         viewModel = ViewModelProvider(this, factory)[SQLiteViewModel::class.java]
 
         val detailList = viewModel.getDataList()
-        val adapter = MyRecyclerViewAdapter(detailList)
+        adapter = MyRecyclerViewAdapter(detailList)
         binding.recyclerView.layoutManager = LinearLayoutManager(this)
         binding.recyclerView.adapter = adapter
         adapter.notifyDataSetChanged()
+//        registerForContextMenu(adapter)
 
     }
 
@@ -56,6 +58,8 @@ class SQLiteDbActivity : AppCompatActivity() {
 
                 createDataBiding.submitBtn.setOnClickListener {
                     viewModel.createData(createDataBiding.firstName.text.toString(), createDataBiding.lastName.text.toString(), createDataBiding.mobileNo.text.toString())
+                    binding.recyclerView.adapter = adapter
+                    adapter.notifyDataSetChanged()
                     dialog.dismiss()
                 }
 
@@ -64,7 +68,40 @@ class SQLiteDbActivity : AppCompatActivity() {
                 }
             }
             R.id.delete_all-> {
+                viewModel.deleteAllData()
+            }
 
+            R.id.delete_single_data-> {
+                val personalData = viewModel.getDataList().get(1)
+                viewModel.deleteSingleData(personalData.srNo)
+            }
+            R.id.update_data-> {
+                val personalData = viewModel.getDataList().get(0)
+                val upBinding : LayoutUserDataBinding = DataBindingUtil.inflate(LayoutInflater.from(this), R.layout.layout_user_data,  null, false)
+                upBinding.submitBtn.text = "UPDATE"
+                val dialog = Dialog(this)
+                dialog.requestWindowFeature(Window.FEATURE_NO_TITLE)
+                dialog.setContentView(upBinding.root)
+                dialog.setCancelable(false)
+                dialog.show()
+
+                val window = dialog.window
+                window!!.setLayout(LayoutParams.MATCH_PARENT, LayoutParams.WRAP_CONTENT)
+
+                upBinding.firstName.setText(personalData.fName)
+                upBinding.lastName.setText(personalData.lName)
+                upBinding.mobileNo.setText(personalData.mobileNo)
+                upBinding.submitBtn.setOnClickListener {
+                    viewModel.updateDataList(personalData.srNo, upBinding.firstName.text.toString(), upBinding.lastName.text.toString(), upBinding.mobileNo.text.toString())
+
+                    binding.recyclerView.adapter = adapter
+                    adapter.notifyDataSetChanged()
+                    dialog.dismiss()
+                }
+
+                upBinding.cancelBtn.setOnClickListener {
+                    dialog.dismiss()
+                }
             }
         }
             return super.onOptionsItemSelected(item)

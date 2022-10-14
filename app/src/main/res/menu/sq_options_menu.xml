@@ -11,4 +11,12 @@
         android:id="@+id/delete_all"
         android:title="Delete All"/>
 
+    <item
+        android:id="@+id/delete_single_data"
+        android:title="Delete Single Data"/>
+
+    <item
+        android:id="@+id/update_data"
+        android:title="Update Data"/>
+
 </menu>

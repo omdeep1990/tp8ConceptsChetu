@@ -1,6 +1,7 @@
 package com.chetu.demotp8.mvvm.sqLite
 
 import android.view.LayoutInflater
+import android.view.View
 import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import androidx.recyclerview.widget.RecyclerView
@@ -10,8 +11,8 @@ import com.chetu.demotp8.databinding.DisplayUserDataBinding
 import com.chetu.demotp8.javaConcepts.adapter.RecyclerViewAdapter
 import com.chetu.demotp8.javaConcepts.adapter.RecyclerViewAdapter.MyViewHolder
 
-class MyRecyclerViewAdapter(val list : List<PersonalData>) : RecyclerView.Adapter<MyRecyclerViewAdapter.MyViewHolder>() {
-
+class MyRecyclerViewAdapter(val list : List<PersonalData>) : RecyclerView.Adapter<MyRecyclerViewAdapter.MyViewHolder>()/*,
+    View.OnLongClickListener*/ {
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MyViewHolder {
         val binding : DisplayUserDataBinding = DataBindingUtil.inflate(LayoutInflater.from(parent.context), R.layout.display_user_data, parent, false)
         return MyViewHolder(binding)
@@ -21,6 +22,8 @@ class MyRecyclerViewAdapter(val list : List<PersonalData>) : RecyclerView.Adapte
         val userList : PersonalData = list[position]
         holder.binding.fullName.text = userList.fName+" "+userList.lName
         holder.binding.mobileNo.text = userList.mobileNo
+//        holder.binding.rootLayout.setOnLongClickListener(this)
+
     }
 
     override fun getItemCount(): Int {
@@ -29,4 +32,4 @@ class MyRecyclerViewAdapter(val list : List<PersonalData>) : RecyclerView.Adapte
 
     inner class MyViewHolder(var binding : DisplayUserDataBinding) : RecyclerView.ViewHolder(binding.root)
 
-    }
+}
