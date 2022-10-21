@@ -26,7 +26,7 @@ class SQLiteRepository(private val context: Context) {
         contentValues.put(LAST_NAME, lName)
         contentValues.put(MOBILE_NO, mobile)
 
-        val id : Long =sqLiteDb.insert(TABLE_NAME, null, contentValues)
+        val id : Long = sqLiteDb.insert(TABLE_NAME, null, contentValues)
         if (id > 0) {
             Toast.makeText(context, "Data Added Successfully.", Toast.LENGTH_SHORT).show()
         } else {
@@ -39,7 +39,6 @@ class SQLiteRepository(private val context: Context) {
 
         val columnList = arrayOf(SR_NO, FIRST_NAME, LAST_NAME, MOBILE_NO)
         val cursor : Cursor = sqLiteDb.query(TABLE_NAME, columnList, null, null, null, null, null)
-//        if (cursor.count > 0) {
             if (cursor.moveToFirst()) {
                 do {
                     val srNo : String = cursor.getString(0)
@@ -50,7 +49,6 @@ class SQLiteRepository(private val context: Context) {
                     personDataList.add(personalData)
                 } while (cursor.moveToNext())
             }
-//        }
         return personDataList
     }
 
@@ -60,7 +58,7 @@ class SQLiteRepository(private val context: Context) {
         contentValues.put(LAST_NAME, lName)
         contentValues.put(MOBILE_NO, mobile)
 
-        val id : Int =sqLiteDb.update(TABLE_NAME, contentValues, "$SR_NO=$srNo", null)
+        val id : Int = sqLiteDb.update(TABLE_NAME, contentValues, "$SR_NO=$srNo", null)
         if (id > 0) {
             Toast.makeText(context, "Data Updated Successfully.", Toast.LENGTH_SHORT).show()
         } else {
