@@ -28,4 +28,8 @@
     <string name="first_name">First Name</string>
     <string name="count">Count</string>
     <string name="_1">1</string>
+    <string name="custom_notification">Custom Notification</string>
+    <string name="notification_body">Notification Body</string>
+    <string name="notification_description">Notification Description</string>
+    <string name="notification_value">Notification Value</string>
 </resources>

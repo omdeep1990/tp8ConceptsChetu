@@ -2,6 +2,7 @@ package com.chetu.demotp8.viewPagerScrollableImageDemo
 
 import android.content.Context
 import android.view.LayoutInflater
+import android.view.View
 import android.view.ViewGroup
 import androidx.appcompat.content.res.AppCompatResources
 import androidx.databinding.DataBindingUtil
