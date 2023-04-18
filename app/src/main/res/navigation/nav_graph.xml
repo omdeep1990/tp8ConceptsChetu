@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    app:startDestination="@id/registration"
+    android:id="@+id/nav_graph">
+
+    <fragment
+        android:id="@+id/registration"
+        android:name="com.chetu.demotp8.navGraph.RegisterFragment"
+        android:label="fragment_registration"
+        tools:layout="@layout/fragment_register" >
+        <action
+            android:id="@+id/action_registration_to_details"
+            app:destination="@id/login_action" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/login_action"
+        android:name="com.chetu.demotp8.navGraph.LoginReceiveDataFragment"
+        android:label="fragment_login"
+        tools:layout="@layout/fragment_login_receive_data">
+    <action
+        android:id="@+id/action_details_to_registration"
+        app:destination="@id/registration" >
+    </action>
+        <argument
+            android:name="user"
+            app:argType="string"
+            app:nullable="true"
+            />
+    </fragment>
+
+</navigation>
